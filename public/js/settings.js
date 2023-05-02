@@ -33,8 +33,8 @@ function updateSettings(e) {
     socket.emit('settingsUpdate', {
         rounds: document.querySelector('#rounds').value,
         time: document.querySelector('#time').value,
-        customWords: Array.from(new Set(document.querySelector('#customWords').value.split('\n').map((word) => word.trim()).filter((word) => word !== ''))),
-        probability: document.querySelector('#probability').value,
+        customWords: '',
+        probability: 0,
         language: document.querySelector('#language').value,
     });
 }
@@ -56,7 +56,7 @@ function putPlayer(player) {
         div.appendChild(p);
         document.querySelector('#playersDiv').appendChild(div);
         pop.play();
-        await animateCSS(div, 'fadeInDown', false);
+        // await animateCSS(div, 'fadeInDown', false);
     };
 }
 
@@ -70,7 +70,7 @@ socket.on('otherPlayers', (players) => players.forEach((player) => putPlayer(pla
 socket.on('disconnection', async (player) => {
     if (document.querySelector(`#mimica-${player.id}`)) {
         exit.play();
-        await animateCSS(`#mimica-${player.id}`, 'fadeOutUp');
+        // await animateCSS(`#mimica-${player.id}`, 'fadeOutUp');
         document.querySelector(`#mimica-${player.id}`).remove();
     }
 });
@@ -102,8 +102,8 @@ if (searchParams.has('id')) {
     // room owner
     document.querySelector('#rounds').addEventListener('input', updateSettings);
     document.querySelector('#time').addEventListener('input', updateSettings);
-    document.querySelector('#customWords').addEventListener('change', updateSettings);
-    document.querySelector('#probability').addEventListener('change', updateSettings);
+    // document.querySelector('#customWords').addEventListener('change', updateSettings);
+    // document.querySelector('#probability').addEventListener('change', updateSettings);
     document.querySelector('#language').addEventListener('change', updateSettings);
     document.querySelector('#createRoom').addEventListener('click', async () => {
         // await animateCSS('#landing>div>div', 'hinge');
