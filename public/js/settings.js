@@ -35,7 +35,7 @@ function updateSettings(e) {
         time: document.querySelector('#time').value,
         customWords: '',
         probability: 0,
-        language: document.querySelector('#language').value,
+        language: 'portuguese',
     });
 }
 
