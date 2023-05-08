@@ -109,7 +109,7 @@ if (searchParams.has('id')) {
         // await animateCSS('#landing>div>div', 'hinge');
         document.querySelector('#landing').remove();
         document.querySelector('#settings').classList.remove('d-none');
-        animateCSS('#settings div', 'jackInTheBox');
+        // animateCSS('#settings div', 'jackInTheBox');
         // await animateCSS('#settings>div:nth-of-type(2)', 'jackInTheBox');
         my.id = socket.id;
         socket.emit('newPrivateRoom', my);
