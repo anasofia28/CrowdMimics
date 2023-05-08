@@ -1,4 +1,15 @@
 <section class="container" id="landing">
+    <div class="px-4 py-5 my-5 text-center">
+        <img class="d-block mx-auto mb-4" src="/public/assets/logo.png" alt="" width="72" height="57">
+        <h1 class="display-5 fw-bold text-body-emphasis">Creating lobby</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Create a new lobby and invite your friends to start playing!</p>
+            <!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+            </div> -->
+        </div>
+    </div>
     <div class="row justify-content-center mx-0">
         <div class="col-lg-6 bg-white rounded p-3">
             <div class="form-floating mb-3">
@@ -25,17 +36,17 @@
                             <!-- <option value="Jdenticon">Jdenticon</option> -->
                         </select>
                     </div>
-                    <div class="input-group mb-3">
+                    <!-- <div class="input-group mb-3">
                         <label class="input-group-text" for="bgColor" class="form-label">Background Color</label>
                         <input type="color" class="form-control form-control-color" id="bgColor" value="#FFFFFF"
                             title="Choose your color">
-                    </div>
+                    </div> -->
                 </div>
                 <% if(!roomID) { %>
                     <button class="btn btn-primary mt-3" id="createRoom">Create Private Room</button>
-                <% } else { %>
-                    <button class="btn btn-primary mt-3" id="playGame">Join Room</button>
-                <% } %>
+                    <% } else { %>
+                        <button class="btn btn-primary mt-3" id="playGame">Join Room</button>
+                        <% } %>
             </div>
         </div>
     </div>
