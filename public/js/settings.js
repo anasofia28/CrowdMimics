@@ -4,6 +4,7 @@ const socket = io();
 const params = window.location.toString().substring(window.location.toString().indexOf('?'));
 const searchParams = new URLSearchParams(params);
 const copyBtn = document.querySelector('#copy');
+const lobby_code_text = document.getElementById('lobby_code_text');
 
 const pop = new Howl({
     src: ['audio/pop.mp3'],
@@ -115,6 +116,7 @@ if (searchParams.has('id')) {
         socket.emit('newPrivateRoom', my);
         socket.on('newPrivateRoom', (data) => {
             document.querySelector('#gameLink').value = `${window.location.protocol}//${window.location.host}/?id=${data.gameID}`;
+            lobby_code_text.appendChild(document.createTextNode(data.gameID));
             putPlayer(my);
         });
     });
@@ -143,3 +145,4 @@ const qrcode = new QRCode(document.getElementById('qrcode'), {
     colorLight: '#fff',
     correctLevel: QRCode.CorrectLevel.H,
 });
+

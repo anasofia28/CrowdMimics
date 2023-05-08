@@ -1,13 +1,9 @@
 <section class="container" id="landing">
     <div class="px-4 py-5 my-5 text-center">
-        <img class="d-block mx-auto mb-4" src="/public/assets/logo.png" alt="" width="72" height="57">
+        <img class="d-block mx-auto mb-4" src="/assets/logo.png" alt="" width="144">
         <h1 class="display-5 fw-bold text-body-emphasis">Creating lobby</h1>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Create a new lobby and invite your friends to start playing!</p>
-            <!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
-            </div> -->
         </div>
     </div>
     <div class="row justify-content-center mx-0">
@@ -15,7 +11,7 @@
             <form class="">
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control rounded-3" id="playerName" placeholder="Name">
-                    <label for="playerName">What is your name?</label>
+                    <label for="playerName">What is your nickname?</label>
                 </div>
                 <div class="form-floating mb-3">
                     <select class="form-select" id="playerAvatar">
@@ -23,51 +19,23 @@
                         <option value="Bottts">Robots</option>
                         <option value="Female">Female</option>
                         <option value="Male">Male</option>
-                        <option value="Initials">Initials</option>
-                        <!-- <option value="Gridy">Gridy</option> -->
-                        <!-- <option value="Human">Human</option> -->
-                        <!-- <option value="Identicon">Identicon</option> -->
-                        <!-- <option value="Jdenticon">Jdenticon</option> -->
                     </select>
                     <label for="playerAvatar">What is your avatar?</label>
                 </div>
+                <small class="text-body-secondary">Your avatar style is based on your nickname.</small>
                 <div class="form-floating col-4 mx-auto mb-3">
                     <img id="avatar" class="img-fluid rounded-circle mb-4 mb-sm-0"
                         src="https://avatars.dicebear.com/4.5/api/avataaars/.svg" alt="Avatar">
                 </div>
                 <% if(!roomID) { %>
-                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" id="createRoom" type="button">Create
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
+                        style="background-color: #20c997; border-color: #20c997;" id="createRoom" type="button">Create
                         lobby</button>
                     <% } else { %>
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" id="playGame" type="button">Join
                             lobby</button>
                         <% } %>
-                            <!-- <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Create lobby</button> -->
-                            <small class="text-body-secondary">By clicking Create lobby, you agree to the terms of
-                                use.</small>
-                            <!-- <hr class="my-4">
-                <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2> -->
             </form>
-            <!-- <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="playerName" placeholder="Name" required>
-                <label for="playerName">Name</label>
-            </div> -->
-            <!-- <div class="row justify-content-center mx-0"> -->
-            <!-- <div class="col-sm-7">
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="style">Style</label>
-                    <select class="form-select" id="style">
-                        <option value="Avataaars" selected>Avatars</option>
-                        <option value="Bottts">Robots</option>
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                        <option value="Initials">Initials</option>
-                    </select>
-                </div>
-            </div> -->
-
-
         </div>
-        <!-- </div> -->
     </div>
 </section>

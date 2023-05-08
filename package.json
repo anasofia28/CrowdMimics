@@ -22,6 +22,9 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"
   },
+  "directories": {
+    "assets:": "/public/assets"
+  },
   "repository": {
     "type": "git",
     "url": "https://google.com"
