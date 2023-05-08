@@ -195,7 +195,7 @@ socket.on('endGame', async ({ stats }) => {
 
     clearInterval(timerID);
     document.querySelector('#clock').textContent = 0;
-    await animateCSS('#gameZone', 'fadeOutLeft');
+    // await animateCSS('#gameZone', 'fadeOutLeft');
     document.querySelector('#gameZone').remove();
 
     players.forEach((playerID) => {
@@ -228,7 +228,7 @@ socket.on('endGame', async ({ stats }) => {
     clock.stop();
     gameOver.play();
     document.querySelector('#gameEnded').classList.remove('d-none');
-    animateCSS('#gameEnded>div', 'fadeInRight');
+    // animateCSS('#gameEnded>div', 'fadeInRight');
 });
 
 // eslint-disable-next-line func-names
