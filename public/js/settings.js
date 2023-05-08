@@ -35,7 +35,7 @@ function updateSettings(e) {
         time: document.querySelector('#time').value,
         customWords: '',
         probability: 0,
-        language: 'portuguese',
+        // language: 'portuguese',
     });
 }
 
@@ -85,7 +85,7 @@ if (searchParams.has('id')) {
     document.querySelector('#startGame').classList.add('disabled');
     document.querySelector('#startGame').innerHTML = 'Waiting for the host to start';
     // disable language options
-    document.querySelector('#language').setAttribute('disabled', true);
+    // document.querySelector('#language').setAttribute('disabled', true);
     document.querySelector('#playGame').addEventListener('click', async () => {
         // await animateCSS('#landing>div>div', 'hinge');
         document.querySelector('#landing').remove();
@@ -104,7 +104,7 @@ if (searchParams.has('id')) {
     document.querySelector('#time').addEventListener('input', updateSettings);
     // document.querySelector('#customWords').addEventListener('change', updateSettings);
     // document.querySelector('#probability').addEventListener('change', updateSettings);
-    document.querySelector('#language').addEventListener('change', updateSettings);
+    // document.querySelector('#language').addEventListener('change', updateSettings);
     document.querySelector('#createRoom').addEventListener('click', async () => {
         // await animateCSS('#landing>div>div', 'hinge');
         document.querySelector('#landing').remove();
@@ -132,11 +132,9 @@ document.querySelector('#startGame').addEventListener('click', async () => {
     socket.emit('getPlayers');
 });
 
-// const qrElement = document.getElementById('qrcode');
 
-// console.log(document.querySelector('#gameLink').value);
 const qrUrl = document.querySelector('#gameLink').value;
-// console.log(link);
+
 const qrcode = new QRCode(document.getElementById('qrcode'), {
     text: qrUrl,
     width: 128,
