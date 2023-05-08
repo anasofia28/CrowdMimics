@@ -15,7 +15,7 @@ document.body.append(settings, game);
 
 function updateAvatar() {
     const sprite = style.value.toLowerCase();
-    // const color = bgColor.value.substring(1);
+    const color = 'FFF';
     const url = `${baseURL}/${sprite}/${playerName.value}.svg?b=%23${color}`;
     const newAvatar = document.createElement('img');
     newAvatar.src = url;
