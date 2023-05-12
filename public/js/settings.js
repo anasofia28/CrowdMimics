@@ -6,6 +6,8 @@ const searchParams = new URLSearchParams(params);
 const copyBtn = document.querySelector('#copy');
 const lobby_code_text = document.getElementById('lobby_code_text');
 
+var player_count = 0;
+
 const pop = new Howl({
     src: ['audio/pop.mp3'],
 });
@@ -59,6 +61,9 @@ function putPlayer(player) {
         pop.play();
         // await animateCSS(div, 'fadeInDown', false);
     };
+    player_count += 1;
+    console.log(player_count);
+    document.getElementById("player_count").appendChild(document.createTextNode(player_count));
 }
 
 function showCanvasArea() {
@@ -146,3 +151,17 @@ const qrcode = new QRCode(document.getElementById('qrcode'), {
     correctLevel: QRCode.CorrectLevel.H,
 });
 
+document.getElementById("btn_collapse_share").onclick = function () {
+    document.getElementById("btn_collapse_share").classList.toggle("collapsed");
+    document.getElementById("div_collapse_share").classList.toggle("show");
+};
+
+document.getElementById("btn_collapse_settings").onclick = function () {
+    document.getElementById("btn_collapse_settings").classList.toggle("collapsed");
+    document.getElementById("div_collapse_settings").classList.toggle("show");
+};
+
+document.getElementById("btn_collapse_players").onclick = function () {
+    document.getElementById("btn_collapse_players").classList.toggle("collapsed");
+    document.getElementById("div_collapse_players").classList.toggle("show");
+};

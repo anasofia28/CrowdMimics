@@ -54,14 +54,14 @@ function createScoreCard(players) {
         const p1 = document.createElement('p');
         const p2 = document.createElement('p');
         const name = document.createTextNode(player.name);
-        const score = document.createTextNode('Score: 0');
+        const score = document.createTextNode('Score: 0 points');
 
         img.src = player.avatar;
         img.classList.add('img-fluid', 'rounded-circle');
         div.classList.add('row', 'justify-content-end', 'py-1', 'align-items-center');
         avatar.classList.add('col-5', 'col-xl-4');
         details.classList.add('col-7', 'col-xl-6', 'text-center', 'my-auto');
-        p1.classList.add('mb-0');
+        p1.classList.add('mb-0', 'fw-bold');
         p2.classList.add('mb-0');
         div.id = `mimica-${player.id}`;
         div.append(details, avatar);
@@ -79,6 +79,7 @@ function startTimer(ms) {
         const wordP = document.querySelector('#wordDiv > p.lead.fw-bold.mb-0');
         if (secs === 0) clearInterval(id);
         if (secs === 10) clock.play();
+        document.getElementById("clock_spinner").style.visibility = "initial";
         document.querySelector('#clock').textContent = secs;
         // if (hints[0] && wordP && secs === hints[0].displayTime && pad.readOnly) {
         // if (hints[0] && wordP && secs === hints[0].displayTime) {
@@ -128,6 +129,7 @@ socket.on('choosing', ({ name }) => {
     document.querySelector('#clock').textContent = 0;
     clearInterval(timerID);
     clock.stop();
+    document.getElementById("clock_spinner").style.visibility = "hidden";
 });
 
 socket.on('settingsUpdate', (data) => {
@@ -160,6 +162,7 @@ socket.on('chooseWord', async ([word1, word2, word3]) => {
     document.querySelector('#clock').textContent = 0;
     clearInterval(timerID);
     clock.stop();
+    document.getElementById("clock_spinner").style.visibility = "hidden";
     yourTurn.play();
     pickWordID = setTimeout(() => chooseWord(word2), 15000);
 });
@@ -185,8 +188,8 @@ socket.on('updateScore', ({
     drawerID,
     drawerScore,
 }) => {
-    document.querySelector(`#mimica-${playerID}>div p:last-child`).textContent = `Score: ${score}`;
-    document.querySelector(`#mimica-${drawerID}>div p:last-child`).textContent = `Score: ${drawerScore}`;
+    document.querySelector(`#mimica-${playerID}>div p:last-child`).textContent = `Score: ${score} points`;
+    document.querySelector(`#mimica-${drawerID}>div p:last-child`).textContent = `Score: ${drawerScore} points`;
 });
 
 socket.on('endGame', async ({ stats }) => {
@@ -226,6 +229,7 @@ socket.on('endGame', async ({ stats }) => {
         document.querySelector('#statsDiv').append(row, document.createElement('hr'));
     });
     clock.stop();
+    document.getElementById("clock_spinner").style.visibility = "hidden";
     gameOver.play();
     document.querySelector('#gameEnded').classList.remove('d-none');
     // animateCSS('#gameEnded>div', 'fadeInRight');
