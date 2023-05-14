@@ -123,6 +123,9 @@ if (searchParams.has('id')) {
             document.querySelector('#gameLink').value = `${window.location.protocol}//${window.location.host}/?id=${data.gameID}`;
             lobby_code_text.appendChild(document.createTextNode(data.gameID));
             putPlayer(my);
+
+            const lobby = document.getElementById('lobby_code');
+            lobby.appendChild(document.createTextNode(data.gameID));
         });
     });
 }
