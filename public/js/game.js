@@ -229,7 +229,7 @@ socket.on('endGame', async ({ stats }) => {
         document.querySelector('#statsDiv').append(row, document.createElement('hr'));
     });
     clock.stop();
-    document.getElementById("clock_spinner").style.visibility = "hidden";
+    // document.getElementById("clock_spinner").style.visibility = "hidden";
     gameOver.play();
     document.querySelector('#gameEnded').classList.remove('d-none');
     // animateCSS('#gameEnded>div', 'fadeInRight');
