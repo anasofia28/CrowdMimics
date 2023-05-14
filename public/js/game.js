@@ -78,7 +78,7 @@ function createScoreCard(players) {
 
 function startTimer(ms) {
     let secs = ms / 1000;
-    msg.innerText = "Represent your activity using only gestures";
+    //msg.innerText = "Represent your activity using only gestures";
     const id = setInterval((function updateClock() {
         const wordP = document.querySelector('#wordDiv > p.lead.fw-bold.mb-0');
         if (secs === 0) clearInterval(id);
@@ -135,7 +135,7 @@ socket.on('choosing', ({ name }) => {
     clock.stop();
     document.getElementById("clock_spinner").style.visibility = "hidden";
     role.innerText = "Guesser";
-    msg.innerText = "";
+    msg.innerText = "Guess the activity represented by the mime";
 });
 
 socket.on('settingsUpdate', (data) => {
