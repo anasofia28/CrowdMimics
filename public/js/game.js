@@ -78,7 +78,7 @@ function createScoreCard(players) {
 
 function startTimer(ms) {
     let secs = ms / 1000;
-    msg.textContent = "Represent your activity using only gestures";
+    msg.innerText = "Represent your activity using only gestures";
     const id = setInterval((function updateClock() {
         const wordP = document.querySelector('#wordDiv > p.lead.fw-bold.mb-0');
         if (secs === 0) clearInterval(id);
@@ -152,8 +152,8 @@ socket.on('chooseWord', async ([word1, word2, word3]) => {
     const btn2 = document.createElement('button');
     const btn3 = document.createElement('button');
     
-    role.textContent = "Mime";
-    msg.textContent = "Choose an activity to mime";
+    role.innerText = "Mime";
+    msg.innerText = "Choose an activity to mime";
 
     btn1.classList.add('btn', 'btn-outline-success', 'rounded-pill', 'mx-2');
     btn3.classList.add('btn', 'btn-outline-success', 'rounded-pill', 'mx-2');
@@ -238,7 +238,7 @@ socket.on('endGame', async ({ stats }) => {
         document.querySelector('#statsDiv').append(row, document.createElement('hr'));
     });
     clock.stop();
-    document.querySelector('#clock_spinner').classList.add('d-none');
+    //document.querySelector('#clock_spinner').classList.add('d-none');
     gameOver.play();
     document.querySelector('#gameEnded').classList.remove('d-none');
     // animateCSS('#gameEnded>div', 'fadeInRight');
