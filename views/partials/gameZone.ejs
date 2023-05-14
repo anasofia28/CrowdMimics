@@ -1,28 +1,42 @@
-<section class="container-md d-none" id="gameZone">
-    <div class="alert alert-info py-2 rounded-0" role="alert">
-        <div class="row justify-content-around">
-            <div class="text-center" id="wordDiv"></div>
-        </div>
+<section class="container d-none" id="gameZone">
+    <div class="px-4 my-5 text-center">
+        <span class="mb-1">
+            <h4 class="display-6">Playing in Lobby</h4>
+            <h4 id="lobby_code" class="display-6 fw-bold"></h4>
+        </span>
     </div>
-    <div class="py-2" role="alert">
-        <div class="row text-center justify-content-center">
-            <div id="clock_spinner" class="spinner-border text-success" style="width: 4rem; height: 4rem; z-index: 10;"
+    <div class="px-4 my-5 row text-center justify-content-center">
+        <h1 class="display-6">You are: <span id="role" class="fw-bold"></span></h1>
+        <p id="message" class="text-body-secondary mb-4 text-muted"></p>
+        <div class="alert alert-info py-2 rounded-0">
+            <div class="row justify-content-around">
+                <div class="text-center" id="wordDiv"></div>
+            </div>
+        </div>
+
+        <div id="clock_spinner">
+            <div class="spinner-border text-success" style="width: 3rem; height: 3rem; z-index: 10;"
                 role="status">
                 <span class="sr-only"></span>
             </div>
-            <p class="display-5 fw-bold mb-0" style="z-index: 20; position: absolute;" id="clock">0</p>
+            <div>
+                <p class="lead fw-bold mb-0 d-inline" id="clock">0</p>
+                <p class="d-inline"> seconds</p>
+            </div>
         </div>
-    </div>
-    <div class="row justify-content-center mx-0">
-        <div class="col-8 h-100 players"></div>
-        <div class="h-100">
-            <div class="messages"></div>
-            <form id="sendMessage" class="m-2">
-                <input class="form-control" type="text" placeholder="Type your guess here...">
-                <div class="position-relative">
-                    <ul class="list-group mt-1" id="suggestions"></ul>
-                </div>
-            </form>
+  
+    
+        <div class="row justify-content-center mx-0">
+            <div class="col-8 players"></div>
+            <div class="">
+                <div class="messages"></div>
+                <form id="sendMessage" class="m-2">
+                    <input class="form-control" type="text" placeholder="Type your guess here...">
+                    <div class="position-relative">
+                        <ul class="list-group mt-1" id="suggestions"></ul>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>
